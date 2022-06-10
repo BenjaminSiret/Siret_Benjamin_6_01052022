@@ -78,6 +78,7 @@
 
 .media-article {
   width: 350px;
+  cursor: pointer;
 }
 .sample-image {
   object-fit: cover;

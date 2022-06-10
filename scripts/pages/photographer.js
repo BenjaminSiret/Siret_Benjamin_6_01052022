@@ -63,6 +63,11 @@ async function selectedInit() {
     await getSelectedPhotographer(photographerId);
   displayPhotographer(selectedPhotographer);
   displayMedia(photographerMedias);
+  displayLightbox();
 }
+
+// TEST******************************
+
+//  FIN TESTS***************************
 
 selectedInit();
