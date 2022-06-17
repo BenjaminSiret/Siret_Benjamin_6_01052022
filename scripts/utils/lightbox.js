@@ -27,33 +27,49 @@ function closeLightbox() {
   lightbox.style.display = "none";
 }
 
-function lightboxListeners() {
-  const images = Array.from(document.querySelectorAll(".sample-image"));
-  const nextBtn = document.querySelector(".lightbox-next");
+const images = Array.from(document.querySelectorAll(".sample-image"));
+const nextBtn = document.querySelector(".lightbox-next");
+console.log(images);
+const gallery = images.map((image) => image.getAttribute("src"));
 
-  const gallery = images.map((image) => image.getAttribute("src"));
-
-  images.forEach((image) =>
-    image.addEventListener("click", (e) => {
-      e.preventDefault();
-      const imageURL = image.getAttribute("src");
-      const imageAlt = image.getAttribute("alt").split(",").slice(0, 1);
-
-      displayLightbox(imageURL, imageAlt);
-    })
-  );
-
-  nextBtn.addEventListener("click", (e) => {
+images.forEach((image) =>
+  image.addEventListener("click", (e) => {
     e.preventDefault();
+    const imageURL = image.getAttribute("src");
+    const imageAlt = image.getAttribute("alt").split(",").slice(0, 1);
 
-    const imageSelected = document.getElementById("image");
-    let imgIndex = gallery.findIndex(
-      (img) => img === imageSelected.getAttribute("src")
-    );
-    console.log(imgIndex);
-    imageSelected.setAttribute("src", `${gallery[imgIndex + 1]}`);
-  });
-}
+    displayLightbox(imageURL, imageAlt);
+  })
+);
+
+// function lightboxListeners() {
+
+//   nextBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
+
+//     const imageSelected = document.getElementById("image");
+//     let imgIndex = gallery.findIndex(
+//       (img) => img === imageSelected.getAttribute("src")
+//     );
+//     console.log(imgIndex);
+//     imageSelected.setAttribute("src", `${gallery[imgIndex + 1]}`);
+//   });
+// }
+
+// const images = Array.from(document.querySelectorAll(".sample-image"));
+// const nextBtn = document.querySelector(".lightbox-next");
+// console.log(images);
+// const gallery = images.map((image) => image.getAttribute("src"));
+
+// images.forEach((image) =>
+//   image.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     const imageURL = image.getAttribute("src");
+//     const imageAlt = image.getAttribute("alt").split(",").slice(0, 1);
+
+//     displayLightbox(imageURL, imageAlt);
+//   })
+// );
 
 //************* A SUPPRIMER EN FIN DE PROJET **************
 
