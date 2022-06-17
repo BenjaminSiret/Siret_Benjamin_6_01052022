@@ -2,12 +2,14 @@ function displayLightbox(imageURL, imageAlt) {
   const lightbox = document.getElementById("lightbox");
   const header = document.getElementById("header");
   const main = document.getElementById("main");
-  const image = document.getElementById("image");
-  header.setAttribute("arria-hidden", true);
-  main.setAttribute("arria-hidden", true);
+
+  header.setAttribute("aria-hidden", true);
+  main.setAttribute("aria-hidden", true);
   lightbox.setAttribute("aria-hidden", false);
-  image.setAttribute("src", `/${imageURL}`);
-  image.setAttribute("alt", `${imageAlt}`);
+  imageContainer = document.querySelector(".image-container");
+
+  imageContainer.innerHTML = `<img id="image" src="${imageURL}" alt="${imageAlt}" class="image-lightbox" />`;
+
   header.style.opacity = "0.1";
   main.style.opacity = "0.1";
   lightbox.style.display = "block";
@@ -23,19 +25,34 @@ function closeLightbox() {
   main.style.opacity = "1";
   lightbox.setAttribute("aria-hidden", true);
   lightbox.style.display = "none";
-  console.log("toto");
 }
 
 function lightboxListeners() {
   const images = Array.from(document.querySelectorAll(".sample-image"));
+  const nextBtn = document.querySelector(".lightbox-next");
+
+  const gallery = images.map((image) => image.getAttribute("src"));
+
   images.forEach((image) =>
     image.addEventListener("click", (e) => {
       e.preventDefault();
       const imageURL = image.getAttribute("src");
       const imageAlt = image.getAttribute("alt").split(",").slice(0, 1);
+
       displayLightbox(imageURL, imageAlt);
     })
   );
+
+  nextBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const imageSelected = document.getElementById("image");
+    let imgIndex = gallery.findIndex(
+      (img) => img === imageSelected.getAttribute("src")
+    );
+    console.log(imgIndex);
+    imageSelected.setAttribute("src", `${gallery[imgIndex + 1]}`);
+  });
 }
 
 //************* A SUPPRIMER EN FIN DE PROJET **************

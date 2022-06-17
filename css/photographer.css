@@ -202,8 +202,8 @@ form textarea {
   display: none;
   position: fixed;
   width: 1000px;
-  top: 4%;
-  right: 25%;
+  top: 10%;
+  right: 30%;
   z-index: 1;
 }
 
