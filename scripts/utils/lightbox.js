@@ -54,17 +54,20 @@ function lightboxListeners() {
     e.preventDefault();
 
     const currentImage = document.getElementById("image");
-    const currentImageAlt = currentImage
-      .getAttribute("alt")
-      .split(",")
-      .slice(0, 1);
+
     let imgIndex = gallery.findIndex(
       (img) => img === currentImage.getAttribute("src")
     );
     if (imgIndex === gallery.length - 1) {
       imgIndex = -1;
     }
-    displayLightbox(gallery[imgIndex + 1], currentImageAlt);
+
+    const nextImageAlt = images[imgIndex + 1]
+      .getAttribute("alt")
+      .split(",")
+      .slice(0, 1);
+
+    displayLightbox(gallery[imgIndex + 1], nextImageAlt);
   });
 
   // switch to previous image
@@ -73,13 +76,22 @@ function lightboxListeners() {
     e.preventDefault();
 
     const currentImage = document.getElementById("image");
+
     let imgIndex = gallery.findIndex(
       (img) => img === currentImage.getAttribute("src")
     );
     if (imgIndex === 0) {
-      currentImage.setAttribute("src", `${gallery[gallery.length - 1]}`);
+      const nextImageAlt = images[images.length - 1]
+        .getAttribute("alt")
+        .split(",")
+        .slice(0, 1);
+      displayLightbox(gallery[gallery.length - 1], nextImageAlt);
     } else {
-      currentImage.setAttribute("src", `${gallery[imgIndex - 1]}`);
+      const prevImageAlt = images[imgIndex - 1]
+        .getAttribute("alt")
+        .split(",")
+        .slice(0, 1);
+      displayLightbox(gallery[imgIndex - 1], prevImageAlt);
     }
   });
 }
