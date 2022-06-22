@@ -11,7 +11,7 @@ function displayLightbox(imageURL, imageAlt) {
 
   // display video or img, depending on image extension
   if (imgExtension === "mp4") {
-    imageContainer.innerHTML = `<video id="image" src="${imageURL}" alt="${imageAlt} " class="image-lightbox"/>`;
+    imageContainer.innerHTML = `<video id="image" src="${imageURL}" alt="${imageAlt} " class="image-lightbox" controls/>`;
   } else {
     imageContainer.innerHTML = `<img id="image" src="${imageURL}" alt="${imageAlt}" class="image-lightbox" />`;
   }
