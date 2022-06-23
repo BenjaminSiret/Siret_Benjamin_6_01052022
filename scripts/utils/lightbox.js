@@ -33,11 +33,53 @@ function closeLightbox() {
   lightbox.style.display = "none";
 }
 
-function lightboxListeners() {
-  // display lightbox on click
+function nextImage() {
   const images = Array.from(document.querySelectorAll(".sample-image"));
   const gallery = images.map((image) => image.getAttribute("src"));
+  const currentImage = document.getElementById("image");
 
+  let imgIndex = gallery.findIndex(
+    (img) => img === currentImage.getAttribute("src")
+  );
+  if (imgIndex === gallery.length - 1) {
+    imgIndex = -1;
+  }
+
+  const nextImageAlt = images[imgIndex + 1]
+    .getAttribute("alt")
+    .split(",")
+    .slice(0, 1);
+
+  displayLightbox(gallery[imgIndex + 1], nextImageAlt);
+}
+
+function prevImage() {
+  const images = Array.from(document.querySelectorAll(".sample-image"));
+  const gallery = images.map((image) => image.getAttribute("src"));
+  const currentImage = document.getElementById("image");
+
+  let imgIndex = gallery.findIndex(
+    (img) => img === currentImage.getAttribute("src")
+  );
+
+  if (imgIndex === 0) {
+    const prevImageAlt = images[images.length - 1]
+      .getAttribute("alt")
+      .split(",")
+      .slice(0, 1);
+    displayLightbox(gallery[gallery.length - 1], prevImageAlt);
+  } else {
+    const prevImageAlt = images[imgIndex - 1]
+      .getAttribute("alt")
+      .split(",")
+      .slice(0, 1);
+    displayLightbox(gallery[imgIndex - 1], prevImageAlt);
+  }
+}
+
+function globalLightboxListeners() {
+  // display lightbox on click
+  const images = Array.from(document.querySelectorAll(".sample-image"));
   images.forEach((image) =>
     image.addEventListener("click", (e) => {
       e.preventDefault();
@@ -47,69 +89,23 @@ function lightboxListeners() {
       displayLightbox(imageURL, imageAlt);
     })
   );
-
-  // switch to next image
-  const nextBtn = document.querySelector(".lightbox-next");
-  nextBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const currentImage = document.getElementById("image");
-
-    let imgIndex = gallery.findIndex(
-      (img) => img === currentImage.getAttribute("src")
-    );
-    if (imgIndex === gallery.length - 1) {
-      imgIndex = -1;
-    }
-
-    const nextImageAlt = images[imgIndex + 1]
-      .getAttribute("alt")
-      .split(",")
-      .slice(0, 1);
-
-    displayLightbox(gallery[imgIndex + 1], nextImageAlt);
-  });
-
-  // switch to previous image
-  const prevBtn = document.querySelector(".lightbox-prev");
-  prevBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const currentImage = document.getElementById("image");
-
-    let imgIndex = gallery.findIndex(
-      (img) => img === currentImage.getAttribute("src")
-    );
-    if (imgIndex === 0) {
-      const nextImageAlt = images[images.length - 1]
-        .getAttribute("alt")
-        .split(",")
-        .slice(0, 1);
-      displayLightbox(gallery[gallery.length - 1], nextImageAlt);
-    } else {
-      const prevImageAlt = images[imgIndex - 1]
-        .getAttribute("alt")
-        .split(",")
-        .slice(0, 1);
-      displayLightbox(gallery[imgIndex - 1], prevImageAlt);
-    }
-  });
 }
 
-// const images = Array.from(document.querySelectorAll(".sample-image"));
-// const nextBtn = document.querySelector(".lightbox-next");
-// console.log(images);
-// const gallery = images.map((image) => image.getAttribute("src"));
+//*********VARIABLES**********
+const nextBtn = document.querySelector(".lightbox-next");
+const prevBtn = document.querySelector(".lightbox-prev");
 
-// images.forEach((image) =>
-//   image.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     const imageURL = image.getAttribute("src");
-//     const imageAlt = image.getAttribute("alt").split(",").slice(0, 1);
+//*********EVENT LISTENERS***********
 
-//     displayLightbox(imageURL, imageAlt);
-//   })
-// );
+nextBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  nextImage();
+});
+
+prevBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  prevImage();
+});
 
 //************* A SUPPRIMER EN FIN DE PROJET **************
 

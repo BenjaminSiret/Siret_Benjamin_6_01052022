@@ -63,11 +63,10 @@ async function selectedInit() {
     await getSelectedPhotographer(photographerId);
   displayPhotographer(selectedPhotographer);
   displayMedia(photographerMedias);
-  lightboxListeners();
+  globalLightboxListeners();
 }
 
 // TEST******************************
 
 //  FIN TESTS***************************
-
 selectedInit();
