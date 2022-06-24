@@ -41,6 +41,18 @@
       </div>
       <div class="photograph-media"></div>
     </main>
+    <div id="lightbox" aria-label="image-closeup-view">
+      <button class="lightbox-cross" onclick="closeLightbox()">
+        <img src="assets/icons/close-lightbox.svg" alt="Close dialog" />
+      </button>
+      <button class="lightbox-next">
+        <img src="assets/icons/arrow.svg" alt="" />
+      </button>
+      <button class="lightbox-prev">
+        <img src="assets/icons/arrow.svg" alt="" />
+      </button>
+      <div class="image-container"></div>
+    </div>
     <div
       id="contact_modal"
       aria-hidden="true"
@@ -85,9 +97,10 @@
         </form>
       </div>
     </div>
-    <script src="/scripts/utils/contactForm.js"></script>
     <script src="/scripts/factories/photographer.js"></script>
     <script src="/scripts/factories/media.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
+    <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/lightbox.js"></script>
   </body>
 </html>

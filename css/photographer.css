@@ -78,6 +78,7 @@
 
 .media-article {
   width: 350px;
+  cursor: pointer;
 }
 .sample-image {
   object-fit: cover;
@@ -194,4 +195,53 @@ form textarea {
 
 .form-textarea {
   height: 170px;
+}
+
+/************LIGHTBOX**************/
+#lightbox {
+  display: none;
+  position: fixed;
+  width: 1000px;
+  top: 10%;
+  right: 30%;
+  z-index: 1;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: auto;
+}
+
+.image-lightbox {
+  object-fit: cover;
+  border-radius: 5px;
+  max-width: 700px;
+  height: 800px;
+}
+
+#lightbox button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.lightbox-cross {
+  position: absolute;
+  right: 40px;
+}
+
+.lightbox-next {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+}
+
+.lightbox-prev {
+  transform: rotate(180deg);
+  position: absolute;
+  top: 50%;
+  left: 40px;
 }
