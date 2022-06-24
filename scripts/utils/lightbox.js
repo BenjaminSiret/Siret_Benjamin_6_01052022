@@ -80,9 +80,11 @@ function prevImage() {
 function globalLightboxListeners() {
   // display lightbox on click
   const images = Array.from(document.querySelectorAll(".sample-image"));
+
   images.forEach((image) =>
     image.addEventListener("click", (e) => {
       e.preventDefault();
+
       const imageURL = image.getAttribute("src");
       const imageAlt = image.getAttribute("alt").split(",").slice(0, 1);
 

@@ -102,18 +102,21 @@ function sortMedias(medias) {
     medias = medias.sort(comparePopularity);
     document.querySelector(".photograph-media").innerHTML = "";
     displayMedia(medias);
+    globalLightboxListeners();
   });
   dateSort.addEventListener("click", (e) => {
     e.preventDefault();
     medias = medias.sort(compareDate);
     document.querySelector(".photograph-media").innerHTML = "";
     displayMedia(medias);
+    globalLightboxListeners();
   });
   titleSort.addEventListener("click", (e) => {
     e.preventDefault();
     medias = medias.sort(compareTitle);
     document.querySelector(".photograph-media").innerHTML = "";
     displayMedia(medias);
+    globalLightboxListeners();
   });
 }
 
@@ -156,9 +159,9 @@ async function selectedInit() {
     await getSelectedPhotographer(photographerId);
   displayPhotographer(selectedPhotographer, sumOfLikes);
   displayMedia(photographerMedias);
-  globalLightboxListeners();
   addLike();
-  sortMedias(photographerMedias.sort(comparePopularity));
+  sortMedias(photographerMedias);
+  globalLightboxListeners(photographerMedias);
 }
 
 // TEST******************************
