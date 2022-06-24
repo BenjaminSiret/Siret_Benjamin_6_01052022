@@ -110,14 +110,21 @@ prevBtn.addEventListener("click", (e) => {
 });
 
 window.addEventListener("keydown", (e) => {
-  e.preventDefault();
-  switch (e.key) {
-    case "ArrowRight":
-      console.log("toto");
-      break;
+  if (
+    document.getElementById("lightbox").getAttribute("aria-hidden") == "false"
+  ) {
+    e.preventDefault();
+    switch (e.key) {
+      case "ArrowRight":
+        nextImage();
+        break;
+      case "ArrowLeft":
+        prevImage();
+        break;
 
-    default:
-      return;
+      default:
+        return;
+    }
   }
 });
 
