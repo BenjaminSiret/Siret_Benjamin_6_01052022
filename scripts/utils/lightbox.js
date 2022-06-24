@@ -109,6 +109,18 @@ prevBtn.addEventListener("click", (e) => {
   prevImage();
 });
 
+window.addEventListener("keydown", (e) => {
+  e.preventDefault();
+  switch (e.key) {
+    case "ArrowRight":
+      console.log("toto");
+      break;
+
+    default:
+      return;
+  }
+});
+
 //************* A SUPPRIMER EN FIN DE PROJET **************
 
 // function displayLightbox() {
