@@ -156,15 +156,9 @@ async function selectedInit() {
     await getSelectedPhotographer(photographerId);
   displayPhotographer(selectedPhotographer, sumOfLikes);
   displayMedia(photographerMedias);
-<<<<<<< HEAD
   globalLightboxListeners();
-=======
   addLike();
-<<<<<<< HEAD
->>>>>>> 17e0f69 (create addLike function)
-=======
   sortMedias(photographerMedias.sort(comparePopularity));
->>>>>>> 568e043 (add sortMedias function)
 }
 
 // TEST******************************
