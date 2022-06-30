@@ -1,6 +1,6 @@
 // ******GET FUNCTIONS*******
 async function getPhotographers() {
-  const url = "/photographers.json";
+  const url = "../data/photographers.json";
   const response = await fetch(url);
   const data = await response.json();
   return { photographers: data.photographers, medias: data.media };
