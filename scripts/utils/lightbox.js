@@ -109,6 +109,25 @@ prevBtn.addEventListener("click", (e) => {
   prevImage();
 });
 
+window.addEventListener("keydown", (e) => {
+  if (
+    document.getElementById("lightbox").getAttribute("aria-hidden") == "false"
+  ) {
+    e.preventDefault();
+    switch (e.key) {
+      case "ArrowRight":
+        nextImage();
+        break;
+      case "ArrowLeft":
+        prevImage();
+        break;
+
+      default:
+        return;
+    }
+  }
+});
+
 //************* A SUPPRIMER EN FIN DE PROJET **************
 
 // function displayLightbox() {

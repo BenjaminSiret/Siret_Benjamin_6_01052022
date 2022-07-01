@@ -161,7 +161,7 @@ async function selectedInit() {
   displayMedia(photographerMedias);
   addLike();
   sortMedias(photographerMedias);
-  globalLightboxListeners(photographerMedias);
+  globalLightboxListeners();
 }
 
 // TEST******************************
