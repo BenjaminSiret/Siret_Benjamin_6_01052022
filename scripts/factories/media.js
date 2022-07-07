@@ -19,6 +19,7 @@ function mediaFactory(data) {
 
       img.classList.add("sample-image");
       img.setAttribute("alt", `${title}, closeup view`);
+      img.setAttribute("tabindex", 0);
       return img;
     }
 
@@ -36,8 +37,8 @@ function mediaFactory(data) {
     imgLink.appendChild(img);
     article.appendChild(imgLink);
     article.appendChild(imgInfos);
+    // article.setAttribute("tabindex", 0);
     article.classList.add("media-article");
-    article.setAttribute("tabindex", 0);
 
     return article;
   }

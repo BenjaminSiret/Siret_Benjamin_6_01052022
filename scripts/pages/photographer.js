@@ -86,6 +86,29 @@ function addLike() {
         liked = false;
       }
     });
+
+    // element.addEventListener("keydown", (e) => {
+    //   e.preventDefault();
+    //   if (e.key === "Enter") {
+    //     if (!liked) {
+    //       element.previousElementSibling.innerText =
+    //         parseInt(element.previousElementSibling.innerText) + 1;
+    //       totalOfLikes += 1;
+    //       document.getElementById(
+    //         "total-likes"
+    //       ).innerText = `${totalOfLikes} 🖤`;
+    //       liked = true;
+    //     } else {
+    //       element.previousElementSibling.innerText =
+    //         parseInt(element.previousElementSibling.innerText) - 1;
+    //       totalOfLikes -= 1;
+    //       document.getElementById(
+    //         "total-likes"
+    //       ).innerText = `${totalOfLikes} 🖤`;
+    //       liked = false;
+    //     }
+    //   }
+    // });
   });
 }
 

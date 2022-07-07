@@ -96,7 +96,6 @@ function globalLightboxListeners() {
 
   imgLink.forEach((element) => {
     element.addEventListener("keydown", (e) => {
-      e.preventDefault();
       if (e.keyCode === 13) {
         const imageURL = element.firstChild.getAttribute("src");
         const imageAlt = element.firstChild
