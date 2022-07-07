@@ -87,28 +87,27 @@ function addLike() {
       }
     });
 
-    // element.addEventListener("keydown", (e) => {
-    //   e.preventDefault();
-    //   if (e.key === "Enter") {
-    //     if (!liked) {
-    //       element.previousElementSibling.innerText =
-    //         parseInt(element.previousElementSibling.innerText) + 1;
-    //       totalOfLikes += 1;
-    //       document.getElementById(
-    //         "total-likes"
-    //       ).innerText = `${totalOfLikes} 🖤`;
-    //       liked = true;
-    //     } else {
-    //       element.previousElementSibling.innerText =
-    //         parseInt(element.previousElementSibling.innerText) - 1;
-    //       totalOfLikes -= 1;
-    //       document.getElementById(
-    //         "total-likes"
-    //       ).innerText = `${totalOfLikes} 🖤`;
-    //       liked = false;
-    //     }
-    //   }
-    // });
+    element.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        if (!liked) {
+          element.previousElementSibling.innerText =
+            parseInt(element.previousElementSibling.innerText) + 1;
+          totalOfLikes += 1;
+          document.getElementById(
+            "total-likes"
+          ).innerText = `${totalOfLikes} 🖤`;
+          liked = true;
+        } else {
+          element.previousElementSibling.innerText =
+            parseInt(element.previousElementSibling.innerText) - 1;
+          totalOfLikes -= 1;
+          document.getElementById(
+            "total-likes"
+          ).innerText = `${totalOfLikes} 🖤`;
+          liked = false;
+        }
+      }
+    });
   });
 }
 
@@ -127,6 +126,7 @@ function sortMedias(medias) {
     displayMedia(medias);
     globalLightboxListeners();
   });
+
   dateSort.addEventListener("click", (e) => {
     e.preventDefault();
     medias = medias.sort(compareDate);
@@ -134,6 +134,7 @@ function sortMedias(medias) {
     displayMedia(medias);
     globalLightboxListeners();
   });
+
   titleSort.addEventListener("click", (e) => {
     e.preventDefault();
     medias = medias.sort(compareTitle);
