@@ -114,38 +114,65 @@ function addLike() {
 //*********SORT MEDIAS FUNCTIONS********
 
 function sortMedias(medias) {
-  const popularitySort = document.getElementById("popularity-sort");
-  const dateSort = document.getElementById("date-sort");
-  const titleSort = document.getElementById("title-sort");
+  const popularityOption = document.getElementById("popularitySort");
+  const dateOption = document.getElementById("dateSort");
+  const titleOption = document.getElementById("titleSort");
 
-  // event listeners on select options
-  popularitySort.addEventListener("click", (e) => {
+  // event listeners on select options with mouse
+  popularityOption.addEventListener("click", (e) => {
     e.preventDefault();
-    medias = medias.sort(comparePopularity);
+    medias = medias.sort(popularitySort);
     document.querySelector(".photograph-media").innerHTML = "";
     displayMedia(medias);
     globalLightboxListeners();
   });
 
-  dateSort.addEventListener("click", (e) => {
+  dateOption.addEventListener("click", (e) => {
     e.preventDefault();
-    medias = medias.sort(compareDate);
+    medias = medias.sort(dateSort);
     document.querySelector(".photograph-media").innerHTML = "";
     displayMedia(medias);
     globalLightboxListeners();
   });
 
-  titleSort.addEventListener("click", (e) => {
+  titleOption.addEventListener("click", (e) => {
     e.preventDefault();
-    medias = medias.sort(compareTitle);
+    console.log(typeof titleSort);
+    medias = medias.sort(titleSort);
     document.querySelector(".photograph-media").innerHTML = "";
     displayMedia(medias);
     globalLightboxListeners();
+  });
+
+  // event listeners on select options with keyboard
+  const select = document.getElementById("sort-select");
+  select.addEventListener("keydown", (e) => {
+    let sortType = select.options[select.selectedIndex].id;
+
+    if (e.key === "Enter") {
+      switch (sortType) {
+        case "popularitySort":
+          medias = medias.sort(popularitySort);
+          break;
+        case "titleSort":
+          medias = medias.sort(titleSort);
+          break;
+        case "dateSort":
+          medias = medias.sort(dateSort);
+          break;
+
+        default:
+          break;
+      }
+      document.querySelector(".photograph-media").innerHTML = "";
+      displayMedia(medias);
+      globalLightboxListeners();
+    }
   });
 }
 
 // compare functions
-function comparePopularity(a, b) {
+function popularitySort(a, b) {
   if (a.likes > b.likes) {
     return -1;
   }
@@ -155,7 +182,7 @@ function comparePopularity(a, b) {
   return 0;
 }
 
-function compareDate(a, b) {
+function dateSort(a, b) {
   if (a.date < b.date) {
     return -1;
   }
@@ -165,7 +192,7 @@ function compareDate(a, b) {
   return 0;
 }
 
-function compareTitle(a, b) {
+function titleSort(a, b) {
   if (a.title < b.title) {
     return -1;
   }
