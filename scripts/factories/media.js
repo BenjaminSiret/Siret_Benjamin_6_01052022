@@ -26,11 +26,10 @@ function mediaFactory(data) {
     imgInfos.innerHTML = `<p class="image-title">${title}</p>
                           <div class="image-likes" aria-label="likes">
                             <span class="likes-number">${likes}</span>
-                            <img src="assets/icons/heart.png" class="likes-heart" alt="heart icon">
+                            <img src="assets/icons/heart.png" class="likes-heart" alt="heart icon" tabindex="0">
                           </div>`;
     imgInfos.classList.add("image-infos");
 
-    imgLink.setAttribute("href", "#");
     imgLink.setAttribute("aria-label", `${title}`);
     imgLink.classList.add("media-link");
 
@@ -38,6 +37,7 @@ function mediaFactory(data) {
     article.appendChild(imgLink);
     article.appendChild(imgInfos);
     article.classList.add("media-article");
+    article.setAttribute("tabindex", 0);
 
     return article;
   }
