@@ -4,6 +4,7 @@ function mediaFactory(data) {
   function getMediaCardDOM() {
     const article = document.createElement("article");
     const imgInfos = document.createElement("div");
+    const imgLink = document.createElement("a");
 
     function isVideo() {
       video
@@ -28,9 +29,16 @@ function mediaFactory(data) {
                             <img src="assets/icons/heart.png" class="likes-heart" alt="heart icon">
                           </div>`;
     imgInfos.classList.add("image-infos");
-    article.appendChild(img);
+
+    imgLink.setAttribute("href", "#");
+    imgLink.setAttribute("aria-label", `${title}`);
+    imgLink.classList.add("media-link");
+
+    imgLink.appendChild(img);
+    article.appendChild(imgLink);
     article.appendChild(imgInfos);
     article.classList.add("media-article");
+
     return article;
   }
 

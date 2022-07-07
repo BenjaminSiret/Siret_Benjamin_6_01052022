@@ -31,6 +31,7 @@ function closeLightbox() {
   main.style.opacity = "1";
   lightbox.setAttribute("aria-hidden", true);
   lightbox.style.display = "none";
+  document.getElementById("contact").focus();
 }
 
 function nextImage() {
@@ -80,6 +81,7 @@ function prevImage() {
 function globalLightboxListeners() {
   // display lightbox on click
   const images = Array.from(document.querySelectorAll(".sample-image"));
+  const imgLink = Array.from(document.querySelectorAll(".media-link"));
 
   images.forEach((image) =>
     image.addEventListener("click", (e) => {
@@ -91,6 +93,20 @@ function globalLightboxListeners() {
       displayLightbox(imageURL, imageAlt);
     })
   );
+
+  imgLink.forEach((element) => {
+    element.addEventListener("keydown", (e) => {
+      e.preventDefault();
+      if (e.keyCode === 13) {
+        const imageURL = element.firstChild.getAttribute("src");
+        const imageAlt = element.firstChild
+          .getAttribute("alt")
+          .split(",")
+          .slice(0, 1);
+        displayLightbox(imageURL, imageAlt);
+      }
+    });
+  });
 }
 
 //*********VARIABLES**********
@@ -120,6 +136,9 @@ window.addEventListener("keydown", (e) => {
         break;
       case "ArrowLeft":
         prevImage();
+        break;
+      case "Escape":
+        closeLightbox();
         break;
 
       default:

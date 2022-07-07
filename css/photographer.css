@@ -76,6 +76,10 @@
   row-gap: 40px;
 }
 
+.media-link {
+  display: block;
+}
+
 .media-article {
   width: 350px;
   cursor: pointer;
