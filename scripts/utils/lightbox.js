@@ -94,6 +94,7 @@ function globalLightboxListeners() {
     })
   );
 
+  // display lightbox with keyboard
   imgLink.forEach((element) => {
     element.addEventListener("keydown", (e) => {
       if (e.keyCode === 13) {

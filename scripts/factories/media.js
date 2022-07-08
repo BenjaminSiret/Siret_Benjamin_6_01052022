@@ -24,6 +24,8 @@ function mediaFactory(data) {
     }
 
     isVideo();
+
+    // article creation
     imgInfos.innerHTML = `<p class="image-title">${title}</p>
                           <div class="image-likes" aria-label="likes">
                             <span class="likes-number">${likes}</span>
@@ -37,7 +39,6 @@ function mediaFactory(data) {
     imgLink.appendChild(img);
     article.appendChild(imgLink);
     article.appendChild(imgInfos);
-    // article.setAttribute("tabindex", 0);
     article.classList.add("media-article");
 
     return article;

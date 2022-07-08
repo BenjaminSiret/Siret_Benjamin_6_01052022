@@ -171,7 +171,7 @@ function sortMedias(medias) {
   });
 }
 
-// compare functions
+// sort(compare) functions
 function popularitySort(a, b) {
   if (a.likes > b.likes) {
     return -1;
@@ -215,7 +215,4 @@ async function selectedInit() {
   globalLightboxListeners();
 }
 
-// TEST******************************
-
-//  FIN TESTS***************************
 selectedInit();

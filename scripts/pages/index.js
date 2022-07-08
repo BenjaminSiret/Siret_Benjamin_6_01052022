@@ -16,7 +16,7 @@ async function displayData(photographers) {
 }
 
 async function init() {
-  // Récupère les datas des photographes
+  // get photographer data
   const { photographers } = await getPhotographers();
   displayData(photographers);
 }
