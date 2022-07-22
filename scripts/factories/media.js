@@ -28,7 +28,7 @@ function mediaFactory(data) {
     // article creation
     imgInfos.innerHTML = `<p class="image-title">${title}</p>
                           <div class="image-likes" aria-label="likes">
-                            <span class="likes-number">${likes}</span>
+                            <span class="likes-number" aria-label="likes">${likes}</span>
                             <img src="assets/icons/heart.png" class="likes-heart" alt="heart icon" tabindex="0">
                           </div>`;
     imgInfos.classList.add("image-infos");
