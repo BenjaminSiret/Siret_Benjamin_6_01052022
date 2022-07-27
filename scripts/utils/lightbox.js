@@ -15,7 +15,10 @@ function displayLightbox(imageURL, imageAlt) {
   } else {
     imageContainer.innerHTML = `<img id="image" src="${imageURL}" alt="${imageAlt}" class="image-lightbox" />`;
   }
-
+  const imageLightboxTitle = document.createElement("p");
+  imageLightboxTitle.classList.add("image-lightbox-title");
+  imageLightboxTitle.innerText = `${imageAlt}`;
+  imageContainer.appendChild(imageLightboxTitle);
   header.style.opacity = "0.1";
   main.style.opacity = "0.1";
   lightbox.style.display = "block";
