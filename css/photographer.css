@@ -206,7 +206,7 @@ form textarea {
   display: none;
   position: fixed;
   width: 1000px;
-  top: 10%;
+  top: 6%;
   right: 27%;
   z-index: 1;
 }
@@ -214,7 +214,6 @@ form textarea {
 .image-container {
   display: flex;
   flex-direction: column;
-
   justify-content: center;
   width: fit-content;
   margin: auto;
