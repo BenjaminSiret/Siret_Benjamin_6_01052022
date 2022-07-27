@@ -131,13 +131,13 @@
   display: none;
   position: absolute;
   top: 70px;
-  width: inherit;
+  width: 660px;
+  right: 25%;
 }
 
 .modal {
   border-radius: 5px;
   background-color: #db8876;
-  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
