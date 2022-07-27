@@ -205,9 +205,9 @@ form textarea {
 #lightbox {
   display: none;
   position: fixed;
-  width: 1000px;
-  top: 6%;
-  right: 27%;
+  width: 900px;
+  top: 4%;
+  right: 16%;
   z-index: 1;
 }
 
@@ -223,7 +223,7 @@ form textarea {
   object-fit: cover;
   border-radius: 5px;
   max-width: 700px;
-  height: 800px;
+  height: 720px;
 }
 
 .image-lightbox-title {
